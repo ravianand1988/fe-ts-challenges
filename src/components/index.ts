@@ -14,3 +14,4 @@ export * from "./SmartPhoneInput/SmartPhoneInput.example";
 export * from "./StarRating/StarRating.example";
 export * from "./Tabs/Tabs.example";
 export * from "./Toast/Toast.example";
+export * from "./RepoOverview/RepoOverview.example";

@@ -133,4 +133,13 @@ export const challengesRoutes = [
       })),
     ),
   },
+  {
+    path: "repo-overview",
+    label: "Repo Overview",
+    Component: lazy(() =>
+      import("./components").then((m) => ({
+        default: m.RepoOverviewExample,
+      })),
+    ),
+  },
 ];
