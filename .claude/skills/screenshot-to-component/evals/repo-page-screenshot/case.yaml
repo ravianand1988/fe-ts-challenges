@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: repo-page-screenshot
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  A new src/components/<Name>/ folder (component, mock data, CSS module,
+  example, readme) that recreates the repo header, tab bar, branch/file
+  toolbar, file list and About sidebar as real markup, registered in
+  src/components/index.ts and src/routes.tsx. It reuses project pieces where
+  they fit, is responsive and accessible, and adds no new type errors; the
+  build succeeds.

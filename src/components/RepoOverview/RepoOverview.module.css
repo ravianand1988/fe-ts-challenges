@@ -1,0 +1,579 @@
+/*
+  Design tokens: change these to restyle the whole illustration.
+  Accent, border, surface, text and focus values come from src/App.css so the
+  page matches the app shell. Values marked (shot) were sampled from the
+  source screenshot.
+*/
+.root {
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-soft: #e8effd;
+  --border: #ddd;
+  --surface-muted: #fafafa;
+  --text: #333;
+  --text-strong: #111;
+  --text-muted: #5f6670; /* (shot) 5.9:1 on white */
+  --primary: #1f883d; /* (shot) green "Code" button */
+  --primary-hover: #1a7f37;
+  --folder: #54aeff; /* (shot) */
+  --sponsor: #bf3989; /* (shot) */
+  --counter-bg: #eaecef;
+  --radius: 6px;
+  --radius-pill: 999px;
+  --row-height: 41px;
+  --sidebar-width: 296px;
+
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 1280px;
+  /* Respond to the space the component gets, not the viewport: the app
+     shell's sidebar takes 240px, so viewport media queries misfire. */
+  container-type: inline-size;
+}
+
+.root a:focus-visible,
+.root button:focus-visible,
+.root input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.link:hover,
+.plainLink:hover,
+.rowLink:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+.plainLink {
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+/* ---------- Header ---------- */
+
+.repoHeader {
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 8px;
+  font-size: 16px;
+  align-items: center;
+}
+
+.tabsScroller {
+  /* The tab bar scrolls by itself on small screens; the page never does. */
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 12px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.tab:hover {
+  color: var(--text-strong);
+  border-bottom-color: var(--border);
+}
+
+.tabActive {
+  color: var(--text-strong);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+.counter {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-pill);
+  background: var(--counter-bg);
+  color: var(--text-strong);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* ---------- Title row ---------- */
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.titleLeft {
+  align-items: center;
+}
+
+.avatar,
+.commitAvatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: var(--radius);
+  background: var(--text-strong);
+  color: #fff;
+  font-weight: 700;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  font-size: 13px;
+}
+
+.repoName {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.visibility {
+  padding: 0 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  color: var(--text-strong);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #f0f0f0;
+}
+
+.buttonOn {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.primary {
+  border-color: transparent;
+  background: var(--primary);
+  color: #fff;
+}
+
+.primary:hover {
+  background: var(--primary-hover);
+}
+
+.caret {
+  font-size: 9px;
+}
+
+.sponsorIcon {
+  display: inline-flex;
+  color: var(--sponsor);
+}
+
+.starGlyph {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+  gap: 40px;
+  align-items: start;
+}
+
+.main {
+  min-width: 0;
+}
+
+/* ---------- Toolbar ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.toolbarLeft,
+.toolbarRight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbarRight {
+  gap: 8px;
+  flex: 1 1 260px;
+  justify-content: flex-end;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 180px;
+  max-width: 252px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+}
+
+.searchBox:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.searchBox input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--text-strong);
+}
+
+.metaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.metaLink strong {
+  color: var(--text-strong);
+}
+
+.metaLink:hover,
+.metaLink:hover strong {
+  color: var(--accent);
+}
+
+/* ---------- File box ---------- */
+
+.fileBox {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.commitBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--surface-muted);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.commitAvatar {
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  background: var(--accent);
+}
+
+.commitAuthor {
+  color: var(--text-strong);
+  white-space: nowrap;
+}
+
+.commitMessage {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.commitMeta {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.commitMeta code {
+  font-size: 12px;
+}
+
+.fileTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.fileRow {
+  height: var(--row-height);
+}
+
+.fileRow + .fileRow td {
+  border-top: 1px solid var(--border);
+}
+
+.fileRow:hover {
+  background: var(--surface-muted);
+}
+
+.fileRow td {
+  padding: 0 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileName {
+  width: 34%;
+}
+
+.fileName > * {
+  vertical-align: middle;
+}
+
+.folderIcon,
+.fileIcon {
+  display: inline-flex;
+  margin-right: 10px;
+}
+
+.folderIcon {
+  color: var(--folder);
+}
+
+.fileIcon {
+  color: var(--text-muted);
+}
+
+.rowLink {
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+.fileMessage {
+  color: var(--text-muted);
+}
+
+.fileUpdated {
+  width: 120px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.empty {
+  margin: 0;
+  padding: 16px;
+  color: var(--text-muted);
+}
+
+/* ---------- About ---------- */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aboutTitle {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-strong);
+}
+
+.description {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-strong);
+}
+
+.website {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.topics {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.topic {
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.topic:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.aboutList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+/*
+  Sidebar slot. The example puts the project's CountrySelect here.
+  CountrySelect hard-codes a 350px min-width, which is wider than the 296px
+  sidebar, so these rules make its input and dropdown fluid inside this slot
+  only. The CountrySelect challenge itself is unchanged.
+*/
+.asideSlot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.asideSlot input[role="combobox"],
+.asideSlot div:has(> [role="listbox"]) {
+  width: 100%;
+  min-width: 0;
+}
+
+.asideSlot input[role="combobox"] {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+.asideSlot div:has(> [role="listbox"]) {
+  z-index: 1;
+  max-height: 240px;
+  background: #fff;
+}
+
+/* ---------- Responsive (container queries on .root) ---------- */
+
+@container (max-width: 860px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  /* On narrow screens the About panel comes first, like a summary. */
+  .about {
+    order: -1;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@container (max-width: 560px) {
+  .fileMessage,
+  .commitMeta {
+    display: none;
+  }
+
+  .fileUpdated {
+    width: 110px;
+  }
+
+  .fileName {
+    width: auto;
+  }
+
+  .toolbarRight {
+    justify-content: flex-start;
+  }
+
+  .searchBox {
+    max-width: none;
+  }
+}

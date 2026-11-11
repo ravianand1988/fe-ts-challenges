@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,html}\"",
     "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.13.0",
     "prettier": "^3.9.10",
+    "typescript": "^5.9.3",
     "vite": "^8.3.5"
   },
   "dependencies": {

@@ -81,19 +81,22 @@ export const AutocompleteExample = () => {
 
     const timer = setTimeout(async () => {
       try {
-        setUserOptions([]);
         setUserLoading(true);
         setUserError(null);
+        setUserOptions([]);
         const results = await getUsersOptions(userQuery, controller.signal);
+        if (controller.signal.aborted) {
+          return;
+        }
         setUserOptions(results);
       } catch (err) {
         if (controller.signal.aborted) {
           return;
         }
 
-        setError(err instanceof Error ? err.message : "Request failed");
+        setUserError(err instanceof Error ? err.message : "Request failed");
 
-        setOptions([]);
+        setUserOptions([]);
       } finally {
         if (!controller.signal.aborted) {
           setUserLoading(false);
